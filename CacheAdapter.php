@@ -28,6 +28,11 @@ class Cache {
      */
     protected $_time = null;
 
+    /**
+     * @param string  $id
+     * @param string  $dir
+     * @param integer $time в секундах
+     */
     public function __construct(string $id, string $dir = "/travelsoft", int $time = 3600) {
 
         $this->_cache = \Bitrix\Main\Data\Cache::createInstance();
