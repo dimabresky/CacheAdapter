@@ -1,5 +1,5 @@
 <?php
-namespace travelsoft\;
+namespace travelsoft;
 /**
  * Адаптер для механизма кеширования
  *
