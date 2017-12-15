@@ -31,7 +31,7 @@ class Cache {
     /**
      * @param string  $id
      * @param string  $dir
-     * @param integer $time в секундах
+     * @param int $time в секундах
      */
     public function __construct(string $id, string $dir = "/travelsoft", int $time = 3600) {
 
@@ -67,19 +67,15 @@ class Cache {
 
         $result = array();
 
-        if (is_callable($callback)) {
+        if ($this->_cache->startDataCache()) {
 
-            if ($this->_cache->startDataCache()) {
+            $result = (array)$callback();
 
-                $result = (array)$callback();
-
-                if (is_array($result) && !empty($result)) {
-                    $this->_cache->endDataCache($result);
-                } else {
-                    $this->_cache->abortDataCache();
-                }
+            if (is_array($result) && !empty($result)) {
+                $this->_cache->endDataCache($result);
+            } else {
+                $this->_cache->abortDataCache();
             }
-
         }
 
         return $result;
