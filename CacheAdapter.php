@@ -45,11 +45,11 @@ class Cache {
      * Получение из кеша
      * @return array
      */
-    public function get () : array {
+    public function get () {
 
         $result = array();
 
-        if ($this->_cache->initCache($this->_time, $this->_id, $this->_dir) {
+        if ($this->_cache->initCache($this->_time, $this->_id, $this->_dir)) {
 
             $result = $this->_cache->getVars();
         }
@@ -63,7 +63,7 @@ class Cache {
      * @param callable $callback
      * @return array
      */
-    public function caching (callable $callback) : array {
+    public function caching (callable $callback) {
 
         $result = array();
 
