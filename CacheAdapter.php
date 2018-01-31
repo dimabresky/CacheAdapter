@@ -80,4 +80,25 @@ class Cache {
 
         return $result;
     }
+    
+    /**
+     * Устанавливает тегированный кеш
+     * @global type $CACHE_MANAGER
+     * @param string $tag_cache_id
+     */
+    public function setTagCache (string $tag_cache_id) {
+        if(defined('BX_COMP_MANAGED_CACHE')) {
+            global $CACHE_MANAGER;
+            $CACHE_MANAGER->StartTagCache($this->getCacheDir());
+            $CACHE_MANAGER->RegisterTag($tag_cache_id);
+            $CACHE_MANAGER->EndTagCache();
+        }
+    }
+    
+    /**
+     * @return string
+     */
+    public function getCacheDir() {
+        return $this->_dir;
+    }
 }
