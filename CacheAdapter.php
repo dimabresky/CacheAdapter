@@ -96,6 +96,16 @@ class Cache {
     }
     
     /**
+     * Очистка тегированного кеша по названию тега
+     * @global \travelsoft\booking\adapters\type $CACHE_MANAGER
+     * @param string $tagName
+     */
+    public static function clearByTag (string $tagName) {
+        global $CACHE_MANAGER;
+        $CACHE_MANAGER->ClearByTag($tagName);
+    }
+    
+    /**
      * @return string
      */
     public function getCacheDir() {
