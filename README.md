@@ -13,6 +13,9 @@ if (empty($result = $cache->get())) {
      
      // бизнес логика
      
+     // добавляет тегированный кеш
+     $cache->setTagCache({название тега});
+     
      return $result;
     
   });
