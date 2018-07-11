@@ -6,7 +6,7 @@ namespace travelsoft;
  * @author dimabresky
  * @copyright (c) 2017, travelsoft
  */
-class Cache {
+class CacheAdapter {
 
     /**
      * @var \Bitrix\Main\Data\Cache
