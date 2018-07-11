@@ -9,7 +9,7 @@ $cache = new \travelsoft\CacheAdapter($id, $dir, $time);
 // и возвращаем результат, который будет закеширован автоматически
 if (empty($result = $cache->get())) {
 
-  $result = $cache->caching(function () {
+  $result = $cache->caching(function () use ($cache) {
      
      // бизнес логика
      
